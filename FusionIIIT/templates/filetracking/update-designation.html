@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            {% if user.is_authenticated %}
+                <div class="user-info">
+                    <p>{{ user.get_full_name }}</p>
+                    <p>{{ user.profile.batch_year }} {{ user.profile.branch }}</p>
+                </div>
+                <a href="{% url 'profile' %}">Profile</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Signup</a>
+            {% endif %}
+        </div>
+    </header>
+    <main>
+        <div class="module-info">
+            <p>Module info</p>
+            <p>ROHIT SHARMA</p>
+            <p>B.Tech 2021</p>
+            <p>Sem - 3</p>
+            <p>CSE</p>
+        </div>
+        <div class="action-buttons">
+            <button class="primary-button">Create designation ></button>
+            <button class="secondary-button">Update designation ></button>
+            <button class="feedback-button">Feedback</button>
+            <div class="search-container">
+                <input type="text" placeholder="Search Target User">
+            </div>
+        </div>
+        <div class="profile-container">
+            <div class="user-designations-container">
+                <div class="section-title">User's Designations</div>
+                <div class="designation-list-container">
+                    <div class="designation-list-header">
+                        <div class="designation-list-item">Designation held</div>
+                        <div class="designation-list-item">Update a User's Designation</div>
+                        <div class="designation-list-item">Add a designation</div>
+                        <div class="designation-list-item">Remove</div>
+                    </div>
+                    <div class="designation-list-content">
+                        <div class="designation-list-item">NS103a</div>
+                        <div class="designation-list-item">
+                            <button class="primary-button">Update</button>
+                        </div>
+                        <div class="designation-list-item">
+                            <button class="primary-button">Add</button>
+                        </div>
+                        <div class="designation-list-item">
+                            <button class="danger-button">Remove</button>
+                        </div>
+                        <div class="designation-list-item">OE3003</div>
+                        <div class="designation-list-item">
+                            <button class="primary-button">Update</button>
+                        </div>
+                        <div class="designation-list-item">
+                            <button class="primary-button">Add</button>
+                        </div>
+                        <div class="designation-list-item">
+                            <button class="danger-button">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="update-designation-container">
+            <div class="section-title">Update a User's Designation</div>
+            <div class="select-user-container">
+                <div class="select-user-label">Target User:</div>
+                <div class="select-user-field">
+                    <

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            {% if user.is_authenticated %}
+                <div class="user-info">
+                    <p>{{ user.get_full_name }}</p>
+                    <p>{{ user.profile.batch_year }} {{ user.profile.branch }}</p>
+                </div>
+                <a href="{% url 'profile' %}">Profile</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Signup</a>
+            {% endif %}
+        </div>
+    </header>
+    <main>
+        <div class="module-info">
+            <p>Module info</p>
+            <p>ROHIT SHARMA</p>
+            <p>B.Tech 2021</p>
+            <p>Sem - 3</p>
+            <p>CSE</p>
+        </div>
+        <div class="designation-buttons">
+            <button class="primary-button">Create designation ></button>
+            <button class="secondary-button">Update designation ></button>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search Designation Name :">
+            <input type="text" placeholder="Full Name">
+            <select>
+                <option value="">Type of Designation</option>
+                <!-- Add designation options here -->
+            </select>
+        </div>
+        <div class="create-designation-container">
+            <button class="primary-button">Create Designation</button>
+            <div class="feedback-button">Feedback</div>
+            <div class="search-button">Search</div>
+        </div>
+        <div class="designation-table">
+            <!-- Add designation table here -->
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            {% if user.is_authenticated %}
+                <div class="user-info">
+                    <p>{{ user.get_full_name }}</p>
+                    <p>{{ user.profile.batch_year }} {{ user.profile.branch }}</p>
+                </div>
+                <a href="{% url 'profile' %}">Profile</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Signup</a>
+            {% endif %}
+        </div>
+    </header>
+    <main>
+        <div class="module-info">
+            <p>Module info</p>
+            <p>ROHIT SHARMA</p>
+            <p>B.Tech 2021</p>
+            <p>Sem - 3</p>
+            <p>CSE</p>
+        </div>
+        <div class="action-buttons">
+            <button class="primary-button">Create designation ></button>
+            <button class="secondary-button">Update designation ></button>
+            <button class="feedback-button">Feedback</button>
+            <div class="search-container">
+                <input type="text" placeholder="Search Target User">
+            </div>
+        </div>
+        <div class="update-designation-container">
+            <div class="section-title">Update a User's Designation</div>
+            <div class="select-user-container">
+                <div class="select-user-label">Target User:</div>
+                <div class="select-user-field">
+                    <select>
+                        <option value="">Username</option>
+                        <!-- Add username options here -->
+                    </select>
+                </div>
+            </div>
+            <div class="section-title">Username</div>
+            <div class="input-field">
+                <input type="text" placeholder="Enter Username">
+            </div>
+            <div class="confirm-button-container">
+                <button class="primary-button">Confirm</button>
+            </div>
+        </div>
+        <div class="profile-container">
+            <button class="primary-button">Profile</button>
+        </div>
+    </main>
+</body>
+</html>
